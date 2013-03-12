@@ -3,6 +3,7 @@ class Main {
 
 	public static void main(String[] args) {
 		LinkedList a = new LinkedList();
-		a.buildOneTwoThree();
+		a.push(3);
+		a.print();
 	}
 }
