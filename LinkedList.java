@@ -44,6 +44,14 @@ class LinkedList {
 
 	public void empty() {
 		head.setNext(null);
+		length=0;
+	}
+
+	public void buildOneTwoThree() {
+		empty();
+		push(1);
+		push(2);
+		push(3);
 	}
 
 }
