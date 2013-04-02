@@ -81,6 +81,24 @@ class LinkedList {
 		System.out.println();
 	}
 
+	/**
+	 * count
+	 *
+	 * 		counts the number of times a given number apears in the list
+	 *
+	 * @param a - number to check for
+	 * @return the number of times a is in the list
+	 */
+	 public void count(int a) {
+	 	int count = 0;
+	 	Node next = head;
+	 	while(next.getNext()!= null) {
+	 		next = next.getNext();
+	 		if(next.getValue() == a) count++;
+	 	}
+	 	return count;
+	 }
+
 }
 
 

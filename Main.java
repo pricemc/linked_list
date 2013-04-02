@@ -6,5 +6,6 @@ class Main {
 		a.buildOneTwoThree();
 		a.print();
 		System.out.println(a.length());
+		System.out.println(a.count(3));
 	}
 }
