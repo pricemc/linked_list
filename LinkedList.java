@@ -37,7 +37,13 @@ class LinkedList {
 	 * @return length of the list
 	 */
 	public int length() {
-		return 0;
+		int length = 0;
+		Node next = head;
+		while(next.getNext()!=null) {
+			next = next.getNext();
+			length++;
+		}
+		return length;
 	}
 
 	/**
@@ -56,7 +62,7 @@ class LinkedList {
 	 */
 	public void buildOneTwoThree() {
 		empty();
-		push(5);
+		push(3);
 		push(2);
 		push(1);
 	}
@@ -67,12 +73,30 @@ class LinkedList {
 	 * 		prints the list
 	 */
 	public void print() {
-		Node next = head.getNext();
+		Node next = head;
 		while(next.getNext()!= null) {
-			System.out.print(next.getValue());
 			next = next.getNext();
+			System.out.print(next.getValue()+" ");
 		}
 		System.out.println();
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
