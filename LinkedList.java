@@ -132,6 +132,16 @@ class LinkedList {
 	 	return first.getValue();
 	 }
 
+	 /**
+	  * linearSearch
+	  *
+	  * 	Given an int n, return the index where it is found. Return -1 if it is not in the list.
+	  *
+	  * @param n - index(int)
+	  * @return index where n is found
+	  */
+	 public int linearSearch
+
 }
 
 
