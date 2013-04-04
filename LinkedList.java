@@ -99,6 +99,39 @@ class LinkedList {
 	 	return count;
 	 }
 
+	 /**
+	  * getNth
+	  *
+	  * 	Given an index, return the value of the node at that index
+	  *
+	  * @param  a - index(int)
+	  * @return the value of the node at that index
+	  */
+	 public int getNth(int a) {
+	 	int count = 0;
+	 	Node next = head;
+	 	for(int i = 0; i != a; i++) {
+	 		next = next.getNext();
+	 		count++;
+	 	}
+	 	return next.getValue();
+	 }
+
+	 /**
+	  * pop
+	  *
+	  * 	removes the first node from the list and returns its value
+	  *
+	  * @return the value of the first node
+	  */
+	 public int pop() {
+	 	Node first = head.getNext();
+	 	Node next = first.getNext();
+	 	first.setNext(null);
+	 	head.setNext(next);
+	 	return first.getValue();
+	 }
+
 }
 
 

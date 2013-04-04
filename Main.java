@@ -5,7 +5,6 @@ class Main {
 		LinkedList a = new LinkedList();
 		a.buildOneTwoThree();
 		a.print();
-		System.out.println(a.length());
-		System.out.println(a.count(3));
+		System.out.println(a.getNth(2));
 	}
 }
