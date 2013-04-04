@@ -89,7 +89,7 @@ class LinkedList {
 	 * @param a - number to check for
 	 * @return the number of times a is in the list
 	 */
-	 public void count(int a) {
+	 public int count(int a) {
 	 	int count = 0;
 	 	Node next = head;
 	 	while(next.getNext()!= null) {
