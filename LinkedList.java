@@ -108,6 +108,7 @@ class LinkedList {
 	  * @return the value of the node at that index
 	  */
 	 public int getNth(int a) {
+	 	if(a>count()) return null;
 	 	int count = 0;
 	 	Node next = head;
 	 	for(int i = 0; i != a; i++) {
@@ -140,7 +141,10 @@ class LinkedList {
 	  * @param n - index(int)
 	  * @return index where n is found
 	  */
-	 public int linearSearch
+	 public int linearSearch(int n) {
+	 	int index = 0;
+	 	Node next = head;
+	 }
 
 }
 
