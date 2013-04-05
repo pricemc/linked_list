@@ -5,6 +5,6 @@ class Main {
 		LinkedList a = new LinkedList();
 		a.buildOneTwoThree();
 		a.print();
-		System.out.println(a.getNth(2));
+		System.out.println(a.linearSearch(1));
 	}
 }
