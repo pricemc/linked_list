@@ -152,6 +152,33 @@ class LinkedList {
 	 	}
 	 	return 0;
 	 }
+	 /**
+	  * insertNth
+	  * @param n     index
+	  * @param value value of the new node
+	  */
+	 public void insertNth(int n, int value) {
+	 	int index = 0;
+	 	Node next = head;
+	 	Node current = head;
+	 	while(next.getNext()!= null&&index!=n) {
+	 		current = next;
+	 		next = next.getNext();
+	 		index++;
+	 		if(index==n) {
+	 			current = next;
+	 			next = next.getNext();
+	 			current.setNext(new Node(value, next));
+	 		}
+	 	}
+	 	if(index == n) {
+	 		head.setNext(new Node(value, head.getNext()));
+	 	}
+	 }
+
+	 
+
+
 
 }
 
