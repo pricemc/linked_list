@@ -109,11 +109,9 @@ class LinkedList {
 	  */
 	 public int getNth(int a) {
 	 	if(a>length()) return -1;
-	 	int count = 0;
 	 	Node next = head;
 	 	for(int i = 0; i != a; i++) {
 	 		next = next.getNext();
-	 		count++;
 	 	}
 	 	return next.getValue();
 	 }
@@ -176,7 +174,17 @@ class LinkedList {
 	 	}
 	 }
 
-	 
+	 public void sortedInsert(int value){
+		Node now = head.getNext();
+		int index = 0;
+		while(index<=length() && now.getValue()<value){
+			index++;
+			if(now.getNext() != null){
+				now = now.getNext();
+			}
+		}
+		insertNth(index, value);
+	}
 
 
 

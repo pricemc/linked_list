@@ -5,9 +5,7 @@ class Main {
 		LinkedList a = new LinkedList();
 		a.buildOneTwoThree();
 		a.print();
-		System.out.println(a.pop());
-		a.print();
-		a.insertNth(0, 4);
+		a.insertNth(2,3);
 		a.print();
 	}
 }
