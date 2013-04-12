@@ -17,6 +17,10 @@ class LinkedList {
 	public LinkedList() {
 		head = new Node();
 	}
+
+	public LinkedList(Node a) {
+		head = a;
+	}
 	/**
 	 * push
 	 *
@@ -27,6 +31,10 @@ class LinkedList {
 	public void push(int value) {
 		Node next = new Node(value, head.getNext());
 		head.setNext(next);
+	}
+
+	public Node getHead() {
+		return head;
 	}
 
 	/**
@@ -159,6 +167,9 @@ class LinkedList {
 	 	int index = 0;
 	 	Node next = head;
 	 	Node current = head;
+	 	if(n == 0) {
+	 		push(value);
+	 	}
 	 	while(next.getNext()!= null&&index!=n) {
 	 		next = next.getNext();
 	 		index++;
@@ -166,9 +177,6 @@ class LinkedList {
 	 			current = next.getNext();
 	 			next.setNext(new Node(value, current));
 	 		}
-	 	}
-	 	if(n == 0) {
-	 		push(value);
 	 	}
 	 }
 
@@ -191,10 +199,42 @@ class LinkedList {
 		while(index<length()) {
 			listValues[index] = next.getValue();
 			index++;
-			
+			next = next.getNext();
+		}
+		empty();
+		for(int i = 0; index < length(); i++) {
+			sortedInsert(listValues[i]);
 		}
 	}
 
+	public void append(LinkedList as) {
+		Node next = head;
+		while(next.getNext()!=null) {
+			next = next.getNext();
+		}
+		next.setNext(as.getHead().getNext());
+	}
+
+	public LinkedList[] frontBackSplit() {
+		LinkedList[] a = new LinkedList[2];
+		int length = length()/2;
+		int index = 0;
+		Node next = head;
+		if(head.getNext()==null) {
+			return a;
+		}
+		while(index<length) {
+			a[0].push(next.getValue());
+			next = next.getNext();
+			index++;
+		}
+		while(index<length()) {
+			a[1].push(next.getValue());
+			next = next.getNext();
+			index++;
+		}
+		return a;
+	}
 
 
 }
