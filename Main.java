@@ -5,7 +5,11 @@ class Main {
 		LinkedList a = new LinkedList();
 		a.buildOneTwoThree();
 		a.print();
-		a.insertNth(2,3);
+		a.sortedInsert(2);
+		a.sortedInsert(5);
+		a.sortedInsert(3);
+		a.sortedInsert(1);
+		a.sortedInsert(3);
 		a.print();
 	}
 }

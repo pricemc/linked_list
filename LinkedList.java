@@ -160,30 +160,39 @@ class LinkedList {
 	 	Node next = head;
 	 	Node current = head;
 	 	while(next.getNext()!= null&&index!=n) {
-	 		current = next;
 	 		next = next.getNext();
 	 		index++;
-	 		if(index==n) {
-	 			current = next;
-	 			next = next.getNext();
-	 			current.setNext(new Node(value, next));
+	 		if(index == n) {
+	 			current = next.getNext();
+	 			next.setNext(new Node(value, current));
 	 		}
 	 	}
-	 	if(index == n) {
-	 		head.setNext(new Node(value, head.getNext()));
+	 	if(n == 0) {
+	 		push(value);
 	 	}
 	 }
 
 	 public void sortedInsert(int value){
-		Node now = head.getNext();
+		Node current = head.getNext();
 		int index = 0;
-		while(index<=length() && now.getValue()<value){
+		while(index<length() && current.getValue()<value){
 			index++;
-			if(now.getNext() != null){
-				now = now.getNext();
+			if(current.getNext() != null){
+				current = current.getNext();
 			}
 		}
 		insertNth(index, value);
+	}
+
+	public void insertSort() {
+		int[] listValues = new int[length()];
+		Node next = head.getNext();
+		int index = 0;
+		while(index<length()) {
+			listValues[index] = next.getValue();
+			index++;
+			
+		}
 	}
 
 
