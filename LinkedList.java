@@ -223,19 +223,33 @@ class LinkedList {
 		if(head.getNext()==null) {
 			return a;
 		}
-		while(index<length) {
-			a[0].push(next.getValue());
+		next = head.getNext();
+		a[0] = new LinkedList();
+		a[1] = new LinkedList();
+		int[] front = new int[length()/2];
+		int j = 0;
+		while(index<length()/2) {
+			front[j] = next.getValue();
 			next = next.getNext();
 			index++;
+			j++;
 		}
+		int[] back = new int[length()-index];
+		j=0;
 		while(index<length()) {
-			a[1].push(next.getValue());
+			back[j] = next.getValue();
 			next = next.getNext();
 			index++;
+			j++;
+		}
+		for(int i = front.length-1; i >= 0; i--) {
+			a[0].push(front[i]);
+		}
+		for(int i = back.length-1; i>= 0; i--) {
+			a[1].push(back[i]);
 		}
 		return a;
 	}
-
 
 }
 
