@@ -54,6 +54,10 @@ class LinkedList {
 		return length;
 	}
 
+	public int getLength() {
+		return length();
+	}
+
 	/**
 	 * empty
 	 *
@@ -117,7 +121,7 @@ class LinkedList {
 	  */
 	 public int getNth(int a) {
 	 	if(a>length()) return -1;
-	 	Node next = head;
+	 	Node next = head.getNext();
 	 	for(int i = 0; i != a; i++) {
 	 		next = next.getNext();
 	 	}
@@ -133,9 +137,8 @@ class LinkedList {
 	  */
 	 public int pop() {
 	 	Node first = head.getNext();
-	 	Node next = first.getNext();
+	 	head.setNext(first.getNext());
 	 	first.setNext(null);
-	 	head.setNext(next);
 	 	return first.getValue();
 	 }
 
@@ -156,7 +159,7 @@ class LinkedList {
 	 		if(next.getValue() == n) return index;
 	 		index++;
 	 	}
-	 	return 0;
+	 	return -1;
 	 }
 	 /**
 	  * insertNth
@@ -167,9 +170,6 @@ class LinkedList {
 	 	int index = 0;
 	 	Node next = head;
 	 	Node current = head;
-	 	if(n == 0) {
-	 		push(value);
-	 	}
 	 	while(next.getNext()!= null&&index!=n) {
 	 		next = next.getNext();
 	 		index++;
@@ -177,6 +177,9 @@ class LinkedList {
 	 			current = next.getNext();
 	 			next.setNext(new Node(value, current));
 	 		}
+	 	}
+	 	if(n == 0) {
+	 		push(value);
 	 	}
 	 }
 
@@ -192,18 +195,16 @@ class LinkedList {
 		insertNth(index, value);
 	}
 
-	public void insertSort() {
-		int[] listValues = new int[length()];
-		Node next = head.getNext();
-		int index = 0;
-		while(index<length()) {
-			listValues[index] = next.getValue();
-			index++;
-			next = next.getNext();
+	public void insertSort(){
+		int[] values = new int[length()];
+		Node now = head;
+		for(int i = 0; i<length(); i++){
+			now = now.getNext();
+			values[i] = now.getValue();
 		}
 		empty();
-		for(int i = 0; index < length(); i++) {
-			sortedInsert(listValues[i]);
+		for(int i = 0; i<values.length; i++){
+			sortedInsert(values[i]);
 		}
 	}
 
@@ -221,6 +222,8 @@ class LinkedList {
 		int index = 0;
 		Node next = head;
 		if(head.getNext()==null) {
+			a[0] = new LinkedList();
+			a[1] = new LinkedList();
 			return a;
 		}
 		next = head.getNext();
@@ -250,21 +253,34 @@ class LinkedList {
 		}
 		return a;
 	}
+	/**
+	 * removeDuplicates
+	 *
+	 * 		
+	 */
 	public void removeDuplicates(){
 		Node current = head.getNext();
-		Node next = current.getNext();
-		for(int i = 1; i < length(); i++){
-			while(current != null && next != null && current.getValue() == next.getValue()){
-				current.setNext(next.getNext());
-				next = current.getNext();
-			}
-			if(current != null){
-				current = current.getNext();
-			}
-			if(current != null && current.getNext() != null){	
-				next = current.getNext();
+		if(head.getNext()!=null) {
+			Node next = current.getNext();
+			for(int i = 0; i < length()-1; i++){
+				while(current != null && next != null && current.getValue() == next.getValue()){
+					current.setNext(next.getNext());
+					next = current.getNext();
+				}
+				if(current != null){
+					current = current.getNext();
+				}
+				if(current != null && current.getNext() != null){	
+					next = current.getNext();
+				}	
 			}	
-		}	
+		}
+	}
+
+	private void insert(int value, Node next) {
+		Node nextTwo = next.getNext();
+		next.setNext(new Node(value, nextTwo));
+		nextTwo = null;
 	}
 
 }
