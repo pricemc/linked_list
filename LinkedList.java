@@ -250,6 +250,27 @@ class LinkedList {
 		}
 		return a;
 	}
+	public void removeDuplicates() {
+		Node current = head;
+		Node next = current.getNext();
+		if(current.getNext()!=null) {
+			current = current.getNext();
+			if(current.getNext()!=null) {
+				next = current.getNext();
+			}
+		}
+		while(next.getNext()!=null) {
+			next = current.getNext();
+			if(current.getValue()==next.getValue()) {
+				Node thisN = next.getNext();
+				next.setNext(null);
+				current.setNext(thisN);
+			}else{
+				current = next;
+				next = current.getNext();
+			}
+		}
+	}
 
 }
 
