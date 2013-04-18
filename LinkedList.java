@@ -278,20 +278,22 @@ class LinkedList {
 	}
 
 	private void insert(int value, Node next) {
-		Node nextTwo = next.getNext();
-		next.setNext(new Node(value, nextTwo));
-		nextTwo = null;
+		next.setNext(new Node(value, next.getNext()));
 	}
 
+	public LinkedList sortedMerge(LinkedList a, LinkedList b) {
+
+		LinkedList answer = new LinkedList();
+		Node answer = answer.getHead();u
+		Node nextA = a.getHead();
+		Node nextB = b.getHead();
+		boolean run = true;
+
+	}
+
+
+
 }
-
-
-
-
-
-
-
-
 
 
 
