@@ -284,11 +284,28 @@ class LinkedList {
 	public LinkedList sortedMerge(LinkedList a, LinkedList b) {
 
 		LinkedList answer = new LinkedList();
-		Node answer = answer.getHead();u
+		Node answerN = answer.getHead();
 		Node nextA = a.getHead();
 		Node nextB = b.getHead();
 		boolean run = true;
+		while(run) {
+			if(nextA.getNext()==null||nextB.getNext()==null) break;
+			if(nextA.getValue()>nextB.getValue()) {
+				answer.insert(nextA.getValue(), answerN);
+				nextA = nextA.getNext();
+				answerN = answerN.getNext();
+			}else{
+				answer.insert(nextB.getValue(), answerN);
+				nextB = nextB.getNext();
+				answerN = answerN.getNext();
+			}
+		}
+		return answer;
 
+	}
+
+	public LinkedList mergeSort(LinkedList a, LinkedList b) {
+		return a;
 	}
 
 
