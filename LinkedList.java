@@ -283,41 +283,62 @@ class LinkedList {
 
 	public static LinkedList sortedMerge(LinkedList a, LinkedList b){
 		LinkedList answer = new LinkedList();
+
 		Node aNow = a.getHead().getNext();
 		Node bNow = b.getHead().getNext();
 		Node answerNow = answer.getHead();
+
 		int aLength = a.length();
 		int bLength = b.length();
+
 		while(aNow != null && bNow !=null){
+
 			if(aNow!=null && bNow != null && aNow.getValue() < bNow.getValue()){
+
 				answer.insert(aNow.getValue(), answerNow);
+
 				aNow = aNow.getNext();
 				answerNow = answerNow.getNext();
+
 			}else if(bNow!=null){
+
 				answer.insert(bNow.getValue(), answerNow);
+
 				bNow = bNow.getNext();
 				answerNow = answerNow.getNext();
+
 			}
 		}
 		while(aNow!=null){
+
 			answer.insert(aNow.getValue(), answerNow);
+
 			aNow = aNow.getNext();
 			answerNow = answerNow.getNext();
+
 		}
 		while(bNow != null){
+
 			answer.insert(bNow.getValue(), answerNow);
+
 			bNow = bNow.getNext();
 			answerNow = answerNow.getNext();
+
 		}
+
 		return answer;
 	}
 	
 	public LinkedList mergeSort(){
+
 		if(length() <= 1){
 			return this;
 		}
+
 		LinkedList[] list = this.frontBackSplit();
+		
 		return sortedMerge(list[0].mergeSort(), list[1].mergeSort());
+
 	}
 
 
